@@ -1,5 +1,9 @@
 # GoEventFlow
 
+![Go Version](https://img.shields.io/github/go-mod/go-version/miladsssh/goeventflow)
+![Build Status](https://github.com/miladsssh/goeventflow/actions/workflows/ci.yml/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/miladsssh/goeventflow)](https://goreportcard.com/report/github.com/miladsssh/goeventflow)
+
 GoEventFlow is a generic, event-driven middleware system in Go that supports:
 
 - **Dynamic Event Registration**: Register handlers and middleware for specific event types at runtime.
