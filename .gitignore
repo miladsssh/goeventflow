@@ -1,0 +1,13 @@
+
+*.test
+*.out
+*.iml
+vendor/
+.vscode/
+.idea/
+.DS_Store
+coverage.out
+go.sum
+
+
+
