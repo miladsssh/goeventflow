@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Go
+      uses: actions/setup-go@v4
+      with:
+        go-version: '1.21'
+
+    - name: Install golangci-lint
+      run: |
+        go install github.com/golangci/golangci-lint/cmd/golangci-lint@v1.51.2
+        echo "$HOME/go/bin" >> $GITHUB_PATH
+
+    - name: Install dependencies
+      run: make deps
+
+    - name: Format code
+      run: make fmt
+
+    - name: Vet code
+      run: make vet
+
+    - name: Lint code
+      run: make lint
+
+    - name: Run tests
+      run: make test
+
+    - name: Build application
+      run: make build
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: goeventflow
+        path: bin/goeventflow

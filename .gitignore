@@ -3,6 +3,7 @@
 *.out
 *.iml
 vendor/
+bin/
 .vscode/
 .idea/
 .DS_Store
